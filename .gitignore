@@ -216,3 +216,11 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Configurações locais e chaves secretas
+.env
+
+# Pastas de dados temporários
+data/
+*.csv
+temp_data.csv
