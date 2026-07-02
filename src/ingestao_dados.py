@@ -39,7 +39,7 @@ def rodar_pipeline():
         blob_client = blob_service_client.get_blob_client(container=CONTAINER_NAME, blob=BLOB_NAME)
         
         print(f"[{datetime.now()}] Abrindo conexão de streaming com o Azure Blob Storage...")
-        # Baixa o arquivo como um stream (sem carregar na memória
+        # Baixa o arquivo como um stream (sem carregar na memória)
         blob_stream = blob_client.download_blob()
         
         # 5. Ler o arquivo em blocos (Chunks) de 50.000 linhas usando o Pandas
