@@ -1,4 +1,5 @@
--- Criar a tabela/colunas para receber ingestão de dados via streaming do Azure Blob Storage
+-- criar a tabela para receber ingestão de dados via streaming do Azure Blob Storage
+-- english version: create table to receive data ingestion by Azure Blob Storage via streaming
 CREATE TABLE fato_loans (
     id VARCHAR(100) PRIMARY KEY,
     loan_amnt NUMERIC(10, 2),
