@@ -1,0 +1,146 @@
+table 'public vw_lending_club_powerbi'
+	lineageTag: 62e6bbc2-f611-43ff-a827-a8c6377cb3e0
+
+	column id
+		dataType: string
+		lineageTag: 463e7a2d-4cb4-4a1e-875d-bb696fe7df7f
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column loan_status
+		dataType: string
+		lineageTag: 9487a8ce-d841-4b16-b65f-2a3334af8cb8
+		summarizeBy: none
+		sourceColumn: loan_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column term
+		dataType: string
+		lineageTag: 40ce913b-0cfa-406b-adfa-f77f1aca6f24
+		summarizeBy: none
+		sourceColumn: term
+
+		annotation SummarizationSetBy = Automatic
+
+	column home_ownership
+		dataType: string
+		lineageTag: 3e38447c-29c0-45cd-a2c9-633f9420b2c5
+		summarizeBy: none
+		sourceColumn: home_ownership
+
+		annotation SummarizationSetBy = Automatic
+
+	column grade
+		dataType: string
+		lineageTag: 8acd289e-decd-465d-b3eb-bd1cd17bdab6
+		summarizeBy: none
+		sourceColumn: grade
+
+		annotation SummarizationSetBy = Automatic
+
+	column sub_grade
+		dataType: string
+		lineageTag: 72044800-f09f-4f70-b2fd-167956852b4d
+		summarizeBy: none
+		sourceColumn: sub_grade
+
+		annotation SummarizationSetBy = Automatic
+
+	column purpose
+		dataType: string
+		lineageTag: 83fa2c4b-7e58-47c2-8150-6a760f999dc0
+		summarizeBy: none
+		sourceColumn: purpose
+
+		annotation SummarizationSetBy = Automatic
+
+	column emp_length
+		dataType: string
+		lineageTag: 71e01cc5-1ad2-49f4-9fe5-421cce380dab
+		summarizeBy: none
+		sourceColumn: emp_length
+
+		annotation SummarizationSetBy = Automatic
+
+	column verification_status
+		dataType: string
+		lineageTag: 12a6d453-d38e-4580-afc8-48abe33fe4af
+		summarizeBy: none
+		sourceColumn: verification_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column addr_state
+		dataType: string
+		lineageTag: 387644e0-e83e-48e6-81bb-0da0fd4620f6
+		summarizeBy: none
+		sourceColumn: addr_state
+
+		annotation SummarizationSetBy = Automatic
+
+	column classe_renda
+		dataType: string
+		lineageTag: 683d6f53-7497-4521-be23-e5c1550e7d46
+		summarizeBy: none
+		sourceColumn: classe_renda
+
+		annotation SummarizationSetBy = Automatic
+
+	column faixa_comprometimento
+		dataType: string
+		lineageTag: bcca4f2e-dbda-473c-8e1f-28c4515cd293
+		summarizeBy: none
+		sourceColumn: faixa_comprometimento
+
+		annotation SummarizationSetBy = Automatic
+
+	column renda_real
+		dataType: decimal
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: 2bf23ad2-26b1-4d71-90cb-a809a3c2632e
+		summarizeBy: sum
+		sourceColumn: renda_real
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column emprestimo_real
+		dataType: decimal
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: a758694c-8681-4fdc-86e9-06084e4d6b59
+		summarizeBy: sum
+		sourceColumn: emprestimo_real
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column resultado_financeiro_real
+		dataType: decimal
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: db7af14c-78e3-49fb-a1a0-59c975f8cafb
+		summarizeBy: sum
+		sourceColumn: resultado_financeiro_real
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	partition 'public vw_lending_club_powerbi' = m
+		mode: import
+		source =
+				let
+				    Fonte = PostgreSQL.Database("localhost", "lending_club_db"),
+				    public_vw_lending_club_powerbi = Fonte{[Schema="public",Item="vw_lending_club_powerbi"]}[Data],
+				    #"Tipo Alterado" = Table.TransformColumnTypes(public_vw_lending_club_powerbi,{{"renda_real", Currency.Type}, {"emprestimo_real", Currency.Type}, {"resultado_financeiro_real", Currency.Type}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

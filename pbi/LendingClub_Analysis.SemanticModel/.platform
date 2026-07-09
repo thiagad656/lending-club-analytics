@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "LendingClub_Analysis"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "7d6bdc35-f564-419d-a567-f7b8c4fe245b"
+  }
+}

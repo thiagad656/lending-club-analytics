@@ -224,3 +224,32 @@ __marimo__/
 data/
 *.csv
 temp_data.csv
+
+# Power BI
+*.pbix
+*.pbix.zip
+# Exceção para o Power BI
+# Permite que o Git rastreie os JSONs específicos do projeto
+!*.pbip
+!*.pbit
+!definition/
+!definition/*.json
+!report/
+!report/*.json
+!semanticModel/
+!semanticModel/*.json
+
+# Data Science & Large Data
+*.xlsx
+*.xls
+*.parquet
+*.feather
+*.pkl
+*.sqlite
+*.db
+.json
+
+# System Files
+.DS_Store
+Thumbs.db
+
