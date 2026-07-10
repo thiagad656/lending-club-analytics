@@ -24,7 +24,7 @@ Tratar dólares de anos diferentes como equivalentes mascararia o risco real. A 
 
 **Mecânica Matemática:**
 A taxa de indexação é calculada dividindo o CPI do ano base pelo ano de emissão:
-$$\text{Fator de Correção} = \frac{\text{CPI}_{2018}}{\text{CPI}_{\text{Ano Emissão}}}$$
+$$\text{Fator de Correção} = \frac{\text{CPI}_{2018}}{\text{CPI}_{\text{Ano de Emissão}}}$$
 
 A renda real atualizada na View segue a fórmula:
 $$\text{renda\_real} = \text{annual\_inc} \times \text{fator\_cpi}$$
@@ -79,7 +79,7 @@ The indexation rate is calculated by dividing the baseline year CPI by the issua
 $$\text{Correction Factor} = \frac{\text{CPI}_{2018}}{\text{CPI}_{\text{Issuance Year}}}$$
 
 The adjusted real income in the View follows the formula:
-$$\text{renda\_real} = \text{annual\_inc} \times \text{fator\_cpi}$$
+$$\text{real\_income} = \text{annual\_inc} \times \text{cpi\_factor}$$
 
 * **Business Rule Impact (Categorization):** A 2007 borrower with a nominal income of \$55,000, when adjusted by the 1.21 factor, achieves a **real income of \$66,550**. Without this adjustment, they would be incorrectly classified as *Tier D (Low Income)*. With the adjustment, Power BI correctly categorizes them as *Tier C (Middle Class)*, normalizing risk analysis across different historical cohorts.
 
@@ -91,11 +91,11 @@ The `resultado_financeiro_real` column does not represent the bank's final accou
 
 #### Scenario A: Fully Paid Contract (`Fully Paid`)
 The bank recovers the invested principal capital and generates profit through the accumulated interest over the adjusted balance:
-$$\text{Result} = \text{emprestimo\_real} \times \left(\frac{\text{int\_rate}}{100}\right) \times \text{anos\_contrato}$$
+$$\text{Result} = \text{real\_loan} \times \left(\frac{\text{int\_rate}}{100}\right) \times \text{contract\_years}$$
 *Where contract years are mapped to either 3 (for 36 months) or 5 (for 60 months).*
 
 #### Scenario B: Defaulted Contract (`Charged Off` or `Default`)
 The worst-case risk scenario is assumed with a **100% LGD (Loss Given Default)**. When the bank charges off the loan, it recognizes the total loss of the adjusted funded amount:
-$$\text{Result} = -\text{emprestimo\_real}$$
+$$\text{Result} = -\text{real\_loan}$$
 
 *Methodological Note: For analytical simplicity and due to the public nature of the dataset, this calculation does not deduct internal operating expenses, partial post-default recovery rates (Recoveries), or the bank's cost of funding (Spread).*
