@@ -16,6 +16,7 @@ WITH dados_base AS (
         verification_status,
         addr_state,
         int_rate,
+        issue_d,
         
         -- 2. Definição do multiplicador do CPI para Moeda Alvo (2018)
         -- 2. Definition of the CPI multiplier for Target Currency (2018)
@@ -41,6 +42,9 @@ WITH dados_base AS (
 dados_ajustados AS (
     SELECT 
         *,
+        TO_DATE(issue_d, 'Mon-YYYY') AS data_emissao,
+        CAST(RIGHT(issue_d, 4) AS INTEGER) AS ano_emissao,
+        
         (annual_inc * fator_cpi) AS renda_real,
         (funded_amnt * fator_cpi) AS emprestimo_real,
         -- Cálculo do comprometimento usando Valor Presente
@@ -52,8 +56,6 @@ dados_ajustados AS (
     FROM dados_base
 )
 SELECT 
-    -- Seleção final das colunas para o modelo de dados do Power BI
-    -- Final selection of columns for the Power BI data model
     id,
     loan_status,
     term,
@@ -64,6 +66,11 @@ SELECT
     emp_length,
     verification_status,
     addr_state,
+    
+    -- Atributos Temporais Estratégicos
+    -- Strategic Time Attributes
+    data_emissao,
+    ano_emissao,
     
     -- Segmentações Estratégicas (Classes e Faixas)
     -- Strategic Segmentations (Classes and Tiers)

@@ -13,6 +13,8 @@ annotation PBI_QueryOrder = ["public vw_lending_club_powerbi"]
 annotation PBI_ProTooling = ["DevMode"]
 
 ref table 'public vw_lending_club_powerbi'
+ref table DateTableTemplate_5520431e-f061-4c5e-8b2d-130f8651b0f9
+ref table LocalDateTable_c31b5422-71f4-48d4-9c95-743c3dda35c2
 
 ref cultureInfo pt-BR
 
