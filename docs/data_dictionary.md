@@ -1,6 +1,6 @@
 # Dicionário de Dados / Data Dictionary
 
-Este documento descreve a estrutura de dados utilizada no projeto, detalhando o pipeline de transformação, a tabela fato original (`fato_loans`) e a camada analítica final (`vw_lending_club_powerbi`).
+Este documento descreve a estrutura exata de dados utilizada no projeto, detalhando o pipeline de transformação, a tabela fato original (`fato_loans`) e a camada analítica final (`vw_lending_club_powerbi`).
 
 ---
 
@@ -25,7 +25,7 @@ A tabela fato principal (`fato_loans`) passou por um processo rigoroso de **ETL 
 | 7 | `grade` | varchar(5) | Nota de classificação de risco atribuída ao empréstimo (A a G). |
 | 8 | `sub_grade` | varchar(5) | Subdivisão fina da classificação de risco (ex: A1, B3). |
 | 9 | `emp_title` | varchar(255) | Título profissional ou cargo informado pelo tomador no cadastro. |
-| 10 | `emp_length` | varchar(100) | Tempo de emprego do tomador em anos (ex: "< 1 year", "10+ years"). |
+| 10 | `emp_length` | varchar(100) | Tempo de emprego do tomador in anos (ex: "< 1 year", "10+ years"). |
 | 11 | `home_ownership` | varchar(50) | Status de propriedade da residência (RENT, OWN, MORTGAGE). |
 | 12 | `annual_inc` | numeric(15,2) | Renda anual nominal autodeclarada pelo tomador. |
 | 13 | `verification_status`| varchar(100) | Indica se a renda do tomador foi verificada pelo banco ou não. |
@@ -56,9 +56,9 @@ Esta estrutura consolida a inteligência de negócios do projeto diretamente via
 | 12 | `ano_emissao` | int4 | Extração do ano de dentro da string `issue_d` para filtros e linhas de tempo. |
 | 13 | `classe_renda` | text | Segmentação socioeconômica baseada na `renda_real` (Classes A a E). |
 | 14 | `faixa_comprometimento`| text | Razão da parcela anualizada sobre a `renda_real` (Sufocado, Moderado, Confortável). |
-| 15 | `renda_real` | numeric | $$\text{renda\_real} = \text{annual\_inc} \times \text{fator\_cpi}$$ |
-| 16 | `emprestimo_real` | numeric | $$\text{emprestimo\_real} = \text{funded\_amnt} \times \text{fator\_cpi}$$ |
-| 17 | `resultado_financeiro_real`| numeric | **Se Fully Paid:**<br>$$\text{Resultado} = \text{emprestimo\_real} \times \left(\frac{\text{int\_rate}}{100}\right) \times \text{anos\_contrato}$$<br>**Se Charged Off / Default:**<br>$$\text{Resultado} = -\text{emprestimo\_real}$$ |
+| 15 | `renda_real` | numeric | $$\text{renda\\_real} = \text{annual\\_inc} \times \text{fator\\_cpi}$$ |
+| 16 | `emprestimo_real` | numeric | $$\text{emprestimo\\_real} = \text{funded\\_amnt} \times \text{fator\\_cpi}$$ |
+| 17 | `resultado_financeiro_real`| numeric | **Se Fully Paid:**<br>$$\text{Resultado} = \text{emprestimo\\_real} \times \left(\frac{\text{int\\_rate}}{100}\right) \times \text{anos\\_contrato}$$<br>**Se Charged Off / Default:**<br>$$\text{Resultado} = -\text{emprestimo\\_real}$$ |
 
 ---
 
@@ -120,6 +120,6 @@ This structure consolidates the project's business intelligence directly via que
 | 12 | `ano_emissao` | int4 | Year extraction from the `issue_d` string to enable trend and cohort analysis. |
 | 13 | `classe_renda` | text | Socioeconomic stratification based on `real_income` (Tiers A to E). |
 | 14 | `faixa_comprometimento`| text | Ratio of annualized payments over `real_income` (Suffocated, Moderate, Comfortable). |
-| 15 | `renda_real` | numeric | $$\text{real\_income} = \text{annual\_inc} \times \text{cpi\_factor}$$ |
-| 16 | `emprestimo_real` | numeric | $$\text{real\_loan} = \text{funded\_amnt} \times \text{cpi\_factor}$$ |
-| 17 | `resultado_financeiro_real`| numeric | **If Fully Paid:**<br>$$\text{Result} = \text{real\_loan} \times \left(\frac{\text{int\_rate}}{100}\right) \times \text{contract\_years}$$<br>**If Charged Off / Default:**<br>$$\text{Result} = -\text{real\_loan}$$ |
+| 15 | `renda_real` | numeric | $$\text{real\\_income} = \text{annual\\_inc} \times \text{cpi\\_factor}$$ |
+| 16 | `emprestimo_real` | numeric | $$\text{real\\_loan} = \text{funded\\_amnt} \times \text{cpi\\_factor}$$ |
+| 17 | `resultado_financeiro_real`| numeric | **If Fully Paid:**<br>$$\text{Result} = \text{real\\_loan} \times \left(\frac{\text{int\\_rate}}{100}\right) \times \text{contract\\_years}$$<br>**If Charged Off / Default:**<br>$$\text{Result} = -\text{real\\_loan}$$ |
