@@ -88,11 +88,6 @@ table 'public vw_lending_club_powerbi'
 		summarizeBy: none
 		sourceColumn: data_emissao
 
-		variation Variation
-			isDefault
-			relationship: 08667875-84eb-41b1-b9e0-cb8018153010
-			defaultHierarchy: LocalDateTable_c31b5422-71f4-48d4-9c95-743c3dda35c2.'Hierarquia de datas'
-
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date

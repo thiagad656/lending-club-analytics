@@ -1,0 +1,135 @@
+table dimCalendario
+	lineageTag: fb110867-da15-4922-8941-651f904f0bf1
+	dataCategory: Time
+
+	column Date
+		isKey
+		formatString: General Date
+		lineageTag: 8556098d-6084-427e-a3fb-9532d45666ce
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ano
+		formatString: 0
+		lineageTag: cb122d9a-5d97-4a70-b7fe-b40493ac7051
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Ano]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trimestre Num'
+		formatString: 0
+		lineageTag: 164b90ec-db35-40e9-bc77-5acb49d545fd
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Trimestre Num]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Trimestre
+		lineageTag: 577d8ea3-c26e-4677-85e2-be41baec8405
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Trimestre]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mês Num'
+		formatString: 0
+		lineageTag: 58b765b2-4608-458f-8c92-bc6ff0b2c5c0
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Mês Num]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mês Nome'
+		lineageTag: 9762e753-d92d-4aef-952c-ea4cf52b5427
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Mês Nome]
+		sortByColumn: 'Mês Num'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mês Abrev'
+		lineageTag: 5d5e2a73-51e4-4212-8374-8811b642c1bb
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Mês Abrev]
+		sortByColumn: 'Mês Num'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ano Mês Num'
+		formatString: 0
+		lineageTag: 811e76ce-923a-4d6b-8cbf-4be60478a7f8
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Ano Mês Num]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ano Mês'
+		lineageTag: ab387b79-fc46-4347-9ab8-3cb1bd483ea1
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Ano Mês]
+		sortByColumn: 'Ano Mês Num'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dia da Semana Num'
+		formatString: 0
+		lineageTag: be151c3d-7c42-400b-ab43-bede232c662e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Dia da Semana Num]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dia da Semana'
+		lineageTag: 70868011-fbb4-467d-9a4e-800334787e51
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Dia da Semana]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dimCalendario = calculated
+		mode: import
+		source = ```
+				
+				-- 1. Busca dinamicamente os anos limites com base na sua coluna de emissão
+				VAR _AnoMinimo = YEAR(MIN('public vw_lending_club_powerbi'[data_emissao]))
+				VAR _AnoMaximo = YEAR(MAX('public vw_lending_club_powerbi'[data_emissao]))
+				
+				-- 2. Cria o intervalo de datas cobrindo os anos cheios (Boa Prática para não quebrar o DAX)
+				VAR _CalendarioBase = 
+				    CALENDAR(
+				        DATE(_AnoMinimo, 1, 1), 
+				        DATE(_AnoMaximo, 12, 31)
+				    )
+				
+				RETURN
+				ADDCOLUMNS(
+				    _CalendarioBase,
+				    "Ano", YEAR([Date]),
+				    "Trimestre Num", QUARTER([Date]),
+				    "Trimestre", "T" & QUARTER([Date]),
+				    "Mês Num", MONTH([Date]),
+				    "Mês Nome", FORMAT([Date], "MMMM", "pt-PT"),
+				    "Mês Abrev", UPPER(LEFT(FORMAT([Date], "MMM", "pt-PT"), 3)),
+				    "Ano Mês Num", (YEAR([Date]) * 100) + MONTH([Date]),
+				    "Ano Mês", FORMAT([Date], "yyyy/MM"),
+				    "Dia da Semana Num", WEEKDAY([Date], 2), -- 1 para Segunda, 7 para Domingo
+				    "Dia da Semana", FORMAT([Date], "dddd", "pt-PT")
+				)
+				```
+
+	annotation PBI_Id = 890382b9b2af445f8bf092f56819f50b
+

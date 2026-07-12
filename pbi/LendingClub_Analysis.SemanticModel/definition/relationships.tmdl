@@ -1,5 +1,4 @@
-relationship 08667875-84eb-41b1-b9e0-cb8018153010
-	joinOnDateBehavior: datePartOnly
+relationship c4af7fa8-0af4-9c56-81ff-3ade7d7a7613
 	fromColumn: 'public vw_lending_club_powerbi'.data_emissao
-	toColumn: LocalDateTable_c31b5422-71f4-48d4-9c95-743c3dda35c2.Date
+	toColumn: dimCalendario.Date
 
