@@ -2,10 +2,10 @@ table _Measures
 	lineageTag: 0e89a391-4db2-4748-8a88-36eab5cbf27c
 
 	measure 'Volume Total Financiado' = SUM('public vw_lending_club_powerbi'[emprestimo_real])
-		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		formatString: \$#,0;(\$#,0);\$#,0
 		lineageTag: 1b3c4dac-bb26-4702-801a-f96d9b32b06b
 
-		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
 	measure 'Perda de Capital' =
 			
@@ -13,10 +13,10 @@ table _Measures
 			    SUM('public vw_lending_club_powerbi'[emprestimo_real]),
 			    'public vw_lending_club_powerbi'[loan_status] IN { "Charged Off", "Default" }
 			)
-		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		formatString: \$#,0;(\$#,0);\$#,0
 		lineageTag: 31567610-9c28-4b98-aab7-ffa114a38223
 
-		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
 	measure 'Taxa de Inadimplência Vol' =
 			
@@ -35,16 +35,39 @@ table _Measures
 
 		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
 
-	measure 'ROI do Portfolio' =
+	measure 'ROA (Return on Assets) Acumulado' =
 			
 			DIVIDE(
 			    [Resultado Financeiro Liquido],
 			    [Volume Total Financiado],
 			    0
 			)
+		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: bf30f9c5-de2a-455c-b010-c23d269f9b2a
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+	measure 'Resultado Financeiro Anualizado' = ```
+			
+			SUMX(
+			    'public vw_lending_club_powerbi',
+			    VAR _AnosContrato = IF(CONTAINSSTRING('public vw_lending_club_powerbi'[term], "36"), 3, 5)
+			    RETURN 
+			    DIVIDE('public vw_lending_club_powerbi'[resultado_financeiro_real], _AnosContrato)
+			)
+			```
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 989c7fa7-91f3-442e-9776-e78a1355c80b
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'ROA (Return on Assets) Anualizado' =
+			
+			DIVIDE(
+			    [Resultado Financeiro Anualizado],
+			    [Volume Total Financiado],
+			    0
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 44af7189-ffa2-4a42-8977-6a51babe0070
 
 	partition _Measures = m
 		mode: import
