@@ -1,0 +1,366 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "2e5e3987123634b53f54",
+  "position": {
+    "x": 0,
+    "y": 146.73990924289467,
+    "z": 3000,
+    "height": 573.5084786243134,
+    "width": 1280.305708144256,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "public vw_lending_club_powerbi"
+                    }
+                  },
+                  "Property": "grade"
+                }
+              },
+              "queryRef": "public vw_lending_club_powerbi.grade",
+              "nativeQueryRef": "grade"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "public vw_lending_club_powerbi"
+                    }
+                  },
+                  "Property": "term"
+                }
+              },
+              "queryRef": "public vw_lending_club_powerbi.term",
+              "nativeQueryRef": "term"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "public vw_lending_club_powerbi"
+                    }
+                  },
+                  "Property": "faixa_comprometimento"
+                }
+              },
+              "queryRef": "public vw_lending_club_powerbi.faixa_comprometimento",
+              "nativeQueryRef": "faixa_comprometimento"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "public vw_lending_club_powerbi"
+                    }
+                  },
+                  "Property": "classe_renda"
+                }
+              },
+              "queryRef": "public vw_lending_club_powerbi.classe_renda",
+              "nativeQueryRef": "classe_renda"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "ROA (Return on Assets) Anualizado"
+                }
+              },
+              "queryRef": "_Measures.ROA (Return on Assets) Anualizado",
+              "nativeQueryRef": "ROA (Return on Assets) Anualizado"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Quantidade de Contratos"
+                }
+              },
+              "queryRef": "_Measures.Quantidade de Contratos",
+              "nativeQueryRef": "Quantidade de Contratos"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Resultado Financeiro Liquido"
+                }
+              },
+              "queryRef": "_Measures.Resultado Financeiro Liquido",
+              "nativeQueryRef": "Resultado Financeiro Liquido"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Custo de Oportunidade Total Anualizado"
+                }
+              },
+              "queryRef": "_Measures.Custo de Oportunidade Total",
+              "nativeQueryRef": "Custo de Oportunidade Total Anualizado"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Custo de Oportunidade Total Acumulado"
+                }
+              },
+              "queryRef": "_Measures.Custo de Oportunidade Total Acumulado",
+              "nativeQueryRef": "Custo de Oportunidade Total Acumulado"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "Resultado Financeiro Liquido"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "visualHeader": [
+        {
+          "properties": {
+            "showFilterRestatementButton": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "68be5e0828e8e3f9dbed",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "public vw_lending_club_powerbi"
+              }
+            },
+            "Property": "grade"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a7dae7ca1e92f8a80797",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "public vw_lending_club_powerbi"
+              }
+            },
+            "Property": "term"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "6dcd0d66a8a6e78d19eb",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "ROA (Return on Assets) Anualizado"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "dfd6ddb7aec4aed2f6d2",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Quantidade de Contratos"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "_",
+              "Entity": "_Measures",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 2,
+                  "Left": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "_"
+                        }
+                      },
+                      "Property": "Quantidade de Contratos"
+                    }
+                  },
+                  "Right": {
+                    "Literal": {
+                      "Value": "100L"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "18fcf1cb299da6d9801b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Resultado Financeiro Liquido"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "35ca6d0212b98ae85af8",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Custo de Oportunidade Total Anualizado"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "5ac134d971ad2ddbd51d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "public vw_lending_club_powerbi"
+              }
+            },
+            "Property": "faixa_comprometimento"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "657a790cda8e0dcecf11",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "public vw_lending_club_powerbi"
+              }
+            },
+            "Property": "classe_renda"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "ab52f5cadb29f99c1179",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Custo de Oportunidade Total Acumulado"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

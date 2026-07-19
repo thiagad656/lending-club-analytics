@@ -1,0 +1,104 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "3590faa41b5226cf3740",
+  "position": {
+    "x": 1006.3912108908527,
+    "y": 0,
+    "z": 4000,
+    "height": 138.18008120372582,
+    "width": 273.9144972534034,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Custo de Oportunidade Total Acumulado"
+                }
+              },
+              "queryRef": "_Measures.Custo de Oportunidade Total Acumulado",
+              "nativeQueryRef": "Custo de Oportunidade Total Acumulado"
+            },
+            {
+              "field": {
+                "NativeVisualCalculation": {
+                  "Language": "dax",
+                  "Expression": "BLANK()",
+                  "Name": "Pesquisar um valor com contexto"
+                }
+              },
+              "queryRef": "select",
+              "nativeQueryRef": "Pesquisar um valor com contexto",
+              "hidden": true
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "Custo de Oportunidade Total Acumulado"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "value": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Custo de Oportunidade Total Acumulado"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "5b61da1b6132d5b906ef",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Custo de Oportunidade Total Acumulado"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

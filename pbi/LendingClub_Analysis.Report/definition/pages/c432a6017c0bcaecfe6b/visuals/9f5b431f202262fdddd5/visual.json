@@ -1,0 +1,74 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "9f5b431f202262fdddd5",
+  "position": {
+    "x": 689.677573441605,
+    "y": 0,
+    "z": 5000,
+    "height": 133.28875089562933,
+    "width": 316.7136374492477,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Custo de Oportunidade Total Anualizado"
+                }
+              },
+              "queryRef": "_Measures.Custo de Oportunidade Total Anualizado",
+              "nativeQueryRef": "Custo de Oportunidade Total Anualizado"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "Custo de Oportunidade Total Anualizado"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "value": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Custo de Oportunidade Total Anualizado"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
