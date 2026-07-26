@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "728f721cbc588912b2bf",
   "position": {
-    "x": 376.6324337234297,
-    "y": 0,
-    "z": 2,
-    "height": 335.05612610460952,
-    "width": 360.73561022211607,
-    "tabOrder": 2
+    "x": 458.56221638404588,
+    "y": 9.78266061619298,
+    "z": 2000,
+    "height": 349.730117028899,
+    "width": 381.52376403152618,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -332,6 +332,60 @@
               }
             }
           }
+        },
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "FillRule": {
+                      "Input": {
+                        "SelectRef": {
+                          "ExpressionName": "_Measures.Quantidade de Contratos"
+                        }
+                      },
+                      "FillRule": {
+                        "linearGradient2": {
+                          "min": {
+                            "color": {
+                              "Literal": {
+                                "Value": "'minColor'"
+                              }
+                            }
+                          },
+                          "max": {
+                            "color": {
+                              "Literal": {
+                                "Value": "'maxColor'"
+                              }
+                            }
+                          },
+                          "nullColoringStrategy": {
+                            "strategy": {
+                              "Literal": {
+                                "Value": "'asZero'"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "_Measures.Quantidade de Contratos"
+          }
         }
       ],
       "columnTotal": [
@@ -492,7 +546,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Distribuição % de Contratos'"
+                  "Value": "'Distribuição % Total de Contratos (2007-2018)'"
                 }
               }
             },

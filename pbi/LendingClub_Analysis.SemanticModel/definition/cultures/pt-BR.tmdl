@@ -1284,6 +1284,16 @@ cultureInfo pt-BR
 			            },
 			            "Weight": 0.9
 			          }
+			        },
+			        {
+			          "Faixa de Renda": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -1685,7 +1695,7 @@ cultureInfo pt-BR
 			          }
 			        },
 			        {
-			          "ROA ao Ano": {
+			          "ROA Anualizado": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -2125,6 +2135,72 @@ cultureInfo pt-BR
 			    }
 			  },
 			  "Relationships": {
+			    "dim_calendario_has_dia_da_semana": {
+			      "Binding": {
+			        "ConceptualEntity": "dimCalendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendario": {
+			          "Target": {
+			            "Entity": "dim_calendario"
+			          }
+			        },
+			        "dim_calendario.dia_da_semana": {
+			          "Target": {
+			            "Entity": "dim_calendario.dia_da_semana"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "dim_calendario.dia_da_semana"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_calendarios_have_dia_da_semanas"
+			        }
+			      ]
+			    },
+			    "dim_calendario_has_dia_da_semana_num": {
+			      "Binding": {
+			        "ConceptualEntity": "dimCalendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendario": {
+			          "Target": {
+			            "Entity": "dim_calendario"
+			          }
+			        },
+			        "dim_calendario.dia_da_semana_num": {
+			          "Target": {
+			            "Entity": "dim_calendario.dia_da_semana_num"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "dim_calendario.dia_da_semana_num"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_calendarios_have_dia_da_semana_nums"
+			        }
+			      ]
+			    },
 			    "dim_calendario_has_ano_mê": {
 			      "Binding": {
 			        "ConceptualEntity": "dimCalendario"
@@ -3396,72 +3472,6 @@ cultureInfo pt-BR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "public_vw_lending_club_powerbis_are_in_addr_states"
-			        }
-			      ]
-			    },
-			    "dim_calendario_has_dia_da_semana_num": {
-			      "Binding": {
-			        "ConceptualEntity": "dimCalendario"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_calendario": {
-			          "Target": {
-			            "Entity": "dim_calendario"
-			          }
-			        },
-			        "dim_calendario.dia_da_semana_num": {
-			          "Target": {
-			            "Entity": "dim_calendario.dia_da_semana_num"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_calendario"
-			            },
-			            "Object": {
-			              "Role": "dim_calendario.dia_da_semana_num"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_calendarios_have_dia_da_semana_nums"
-			        }
-			      ]
-			    },
-			    "dim_calendario_has_dia_da_semana": {
-			      "Binding": {
-			        "ConceptualEntity": "dimCalendario"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_calendario": {
-			          "Target": {
-			            "Entity": "dim_calendario"
-			          }
-			        },
-			        "dim_calendario.dia_da_semana": {
-			          "Target": {
-			            "Entity": "dim_calendario.dia_da_semana"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_calendario"
-			            },
-			            "Object": {
-			              "Role": "dim_calendario.dia_da_semana"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_calendarios_have_dia_da_semanas"
 			        }
 			      ]
 			    },

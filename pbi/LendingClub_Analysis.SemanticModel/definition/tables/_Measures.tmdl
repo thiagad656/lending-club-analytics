@@ -2,7 +2,7 @@ table _Measures
 	lineageTag: 0e89a391-4db2-4748-8a88-36eab5cbf27c
 
 	measure 'Volume Total Financiado' = SUM('public vw_lending_club_powerbi'[emprestimo_real])
-		formatString: \$#,0.000;(\$#,0.000);\$#,0.000
+		formatString: \$#,0;(\$#,0);\$#,0
 		lineageTag: 1b3c4dac-bb26-4702-801a-f96d9b32b06b
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
@@ -66,7 +66,7 @@ table _Measures
 			    [Volume Total Financiado],
 			    0
 			)
-		formatString: 0.00%;-0.00%;0.00%
+		formatString: #,0.00%;-#,0.00%;#,0.00%
 		lineageTag: 44af7189-ffa2-4a42-8977-6a51babe0070
 
 	measure 'Quantidade de Contratos' = DISTINCTCOUNT('public vw_lending_club_powerbi'[id])
@@ -144,6 +144,82 @@ table _Measures
 		lineageTag: 658c9f96-d8ec-459d-8221-ed23dda0d7c1
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Volume Financiado 60M' =
+			
+			CALCULATE(
+			    SUM('public vw_lending_club_powerbi'[emprestimo_real]),
+			    KEEPFILTERS('public vw_lending_club_powerbi'[term] IN { "60 months", " 60 months" })
+			)
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: 9384eaae-05d6-4b77-b754-6763303433bb
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'ROA Anualizado 36M' = ```
+			
+			VAR _Resultado36 = 
+			    CALCULATE(
+			        SUM('public vw_lending_club_powerbi'[resultado_financeiro_real]),
+			        KEEPFILTERS('public vw_lending_club_powerbi'[term] IN { "36 months", " 36 months" })
+			    )
+			VAR _Volume36 = 
+			    CALCULATE(
+			        SUM('public vw_lending_club_powerbi'[emprestimo_real]),
+			        KEEPFILTERS('public vw_lending_club_powerbi'[term] IN { "36 months", " 36 months" })
+			    )
+			RETURN
+			    DIVIDE(_Resultado36, _Volume36 * 3, 0)
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: ac8dab02-ecc1-4e8f-b839-7ce62f9f916a
+
+	measure 'ROA Anualizado 60M' = ```
+			
+			VAR _Resultado60 = 
+			    CALCULATE(
+			        SUM('public vw_lending_club_powerbi'[resultado_financeiro_real]),
+			        KEEPFILTERS('public vw_lending_club_powerbi'[term] IN { "60 months", " 60 months" })
+			    )
+			VAR _Volume60 = 
+			    CALCULATE(
+			        SUM('public vw_lending_club_powerbi'[emprestimo_real]),
+			        KEEPFILTERS('public vw_lending_club_powerbi'[term] IN { "60 months", " 60 months" })
+			    )
+			RETURN
+			    DIVIDE(_Resultado60, _Volume60 * 5, 0)
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 5e87ebab-4b66-4996-9614-c427140ddc00
+
+	measure 'Impacto Nominal Prazo 60M' =
+			
+			SUMX(
+			    VALUES('public vw_lending_club_powerbi'[classe_renda]),
+			    VAR _Volume60 = [Volume Financiado 60M]
+			    VAR _ROA36 = [ROA Anualizado 36M]
+			    VAR _ROA60 = [ROA Anualizado 60M]
+			    VAR _DeltaROA = _ROA60 - _ROA36
+			    RETURN
+			        _Volume60 * _DeltaROA * 5
+			)
+		formatString: #,0
+		lineageTag: 42be23c3-34ae-49f7-9e2b-eed7dee3427b
+
+	measure 'Resultado Nominal Real' =
+			
+			SUMX(
+			    VALUES('public vw_lending_club_powerbi'[term]),
+			    VAR _Volume = [Volume Total Financiado]
+			    VAR _ROA = [ROA (Return on Assets) Anualizado]
+			    VAR _Anos = IF(CONTAINSSTRING('public vw_lending_club_powerbi'[term], "36"), 3, 5)
+			    RETURN
+			        _Volume * _ROA * _Anos
+			)
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: 927268d1-a8cd-40f7-acc8-f4590e6c6322
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
 
 	partition _Measures = m
 		mode: import

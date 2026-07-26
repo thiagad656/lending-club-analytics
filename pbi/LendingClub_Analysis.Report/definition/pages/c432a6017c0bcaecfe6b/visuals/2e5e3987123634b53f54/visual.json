@@ -202,48 +202,6 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "68be5e0828e8e3f9dbed",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "public vw_lending_club_powerbi"
-              }
-            },
-            "Property": "grade"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "a7dae7ca1e92f8a80797",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "public vw_lending_club_powerbi"
-              }
-            },
-            "Property": "term"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "6dcd0d66a8a6e78d19eb",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "ROA (Return on Assets) Anualizado"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
         "name": "dfd6ddb7aec4aed2f6d2",
         "field": {
           "Measure": {
@@ -290,76 +248,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "18fcf1cb299da6d9801b",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Resultado Financeiro Liquido"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "35ca6d0212b98ae85af8",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Custo de Oportunidade Total Anualizado"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "5ac134d971ad2ddbd51d",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "public vw_lending_club_powerbi"
-              }
-            },
-            "Property": "faixa_comprometimento"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "657a790cda8e0dcecf11",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "public vw_lending_club_powerbi"
-              }
-            },
-            "Property": "classe_renda"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "ab52f5cadb29f99c1179",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Custo de Oportunidade Total Acumulado"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

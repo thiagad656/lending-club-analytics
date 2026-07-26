@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "dddc9d8e6aaed133f091",
   "position": {
-    "x": 619.97611655123,
+    "x": 651.76976355385716,
     "y": 0,
-    "z": 1,
+    "z": 0,
     "height": 720.24838786720807,
-    "width": 660.32959159302607,
-    "tabOrder": 1
+    "width": 628.53594459039891,
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "pivotTable",
@@ -95,8 +95,8 @@
                 }
               },
               "queryRef": "_Measures.ROA (Return on Assets) Anualizado",
-              "nativeQueryRef": "ROA ao Ano",
-              "displayName": "ROA ao Ano"
+              "nativeQueryRef": "ROA Anualizado",
+              "displayName": "ROA Anualizado"
             },
             {
               "field": {
@@ -219,7 +219,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "201.66666666666669D"
+                  "Value": "194.3173932099727D"
                 }
               }
             }
@@ -233,7 +233,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "56.22222211756661D"
+                  "Value": "78.2378312806528D"
                 }
               }
             }
@@ -247,7 +247,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "73.00000109381995D"
+                  "Value": "68.10867072321177D"
                 }
               }
             }
@@ -261,7 +261,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "132.22222222222223D"
+                  "Value": "107.78196923469646D"
                 }
               }
             }
@@ -275,7 +275,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "77.3220419416546D"
+                  "Value": "73.66837312026492D"
                 }
               }
             }
@@ -289,7 +289,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "98.75491253751585D"
+                  "Value": "86.49562203128659D"
                 }
               }
             }
@@ -396,135 +396,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "4db2793e615fe6848489",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "public vw_lending_club_powerbi"
-              }
-            },
-            "Property": "grade"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "7b207c5ceaf0721a308d",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "public vw_lending_club_powerbi"
-              }
-            },
-            "Property": "term"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "c43a50883d70ada802fb",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "public vw_lending_club_powerbi"
-              }
-            },
-            "Property": "faixa_comprometimento"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "2ea6c9128b4d171172aa",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "public vw_lending_club_powerbi"
-              }
-            },
-            "Property": "classe_renda"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "15e164d33c4100fe3ba4",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "ROA (Return on Assets) Anualizado"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "0c35c808ea02ea82ad66",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Quantidade de Contratos"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "efbcce325495ff63c383",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Resultado Financeiro Liquido"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "b293495f7a7ce4aa9091",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Ticket Médio de Concessão"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "7fabe3cb01e0e2a35d9a",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Ticket Médio Retorno Anualizado"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

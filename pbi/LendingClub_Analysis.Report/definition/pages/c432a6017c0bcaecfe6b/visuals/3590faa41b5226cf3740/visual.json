@@ -82,23 +82,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "5b61da1b6132d5b906ef",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Custo de Oportunidade Total Acumulado"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

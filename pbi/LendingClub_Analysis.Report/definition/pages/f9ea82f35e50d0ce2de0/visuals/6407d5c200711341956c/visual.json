@@ -1,0 +1,431 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "6407d5c200711341956c",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 1000,
+    "height": 720.24838786720807,
+    "width": 651.76976355385716,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "decompositionTreeVisual",
+    "query": {
+      "queryState": {
+        "Analyze": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "ROA (Return on Assets) Anualizado"
+                }
+              },
+              "queryRef": "_Measures.ROA (Return on Assets) Anualizado",
+              "nativeQueryRef": "ROA (Return on Assets) Anualizado"
+            }
+          ]
+        },
+        "ExplainBy": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "public vw_lending_club_powerbi"
+                    }
+                  },
+                  "Property": "grade"
+                }
+              },
+              "queryRef": "public vw_lending_club_powerbi.grade",
+              "nativeQueryRef": "Nota de Crédito",
+              "active": true,
+              "displayName": "Nota de Crédito"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "public vw_lending_club_powerbi"
+                    }
+                  },
+                  "Property": "faixa_comprometimento"
+                }
+              },
+              "queryRef": "public vw_lending_club_powerbi.faixa_comprometimento",
+              "nativeQueryRef": "Renda Comprometida",
+              "active": true,
+              "displayName": "Renda Comprometida"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "public vw_lending_club_powerbi"
+                    }
+                  },
+                  "Property": "term"
+                }
+              },
+              "queryRef": "public vw_lending_club_powerbi.term",
+              "nativeQueryRef": "Tempo de Contrato",
+              "active": false,
+              "displayName": "Tempo de Contrato"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "public vw_lending_club_powerbi"
+                    }
+                  },
+                  "Property": "classe_renda"
+                }
+              },
+              "queryRef": "public vw_lending_club_powerbi.classe_renda",
+              "nativeQueryRef": "Classe de Renda",
+              "active": false,
+              "displayName": "Classe de Renda"
+            }
+          ]
+        },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Resultado Financeiro Liquido"
+                }
+              },
+              "queryRef": "_Measures.Resultado Financeiro Liquido",
+              "nativeQueryRef": "Resultado Financeiro Liquido"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Ticket Médio de Concessão"
+                }
+              },
+              "queryRef": "_Measures.Ticket Médio de Concessão",
+              "nativeQueryRef": "Ticket Médio de Concessão"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Ticket Médio Retorno Anualizado"
+                }
+              },
+              "queryRef": "_Measures.Ticket Médio Retorno Anualizado",
+              "nativeQueryRef": "Ticket Médio de Retorno Anualizado",
+              "displayName": "Ticket Médio de Retorno Anualizado"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "public vw_lending_club_powerbi"
+                  }
+                },
+                "Property": "grade"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "ExplainBy"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "public vw_lending_club_powerbi.grade"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "public vw_lending_club_powerbi"
+                    }
+                  },
+                  "Property": "grade"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "public vw_lending_club_powerbi.faixa_comprometimento"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "public vw_lending_club_powerbi.term"
+            ],
+            "isCollapsed": true
+          },
+          {
+            "queryRefs": [
+              "public vw_lending_club_powerbi.classe_renda"
+            ],
+            "isCollapsed": true
+          }
+        ],
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'A'"
+                  }
+                }
+              ],
+              "isToggled": true
+            }
+          ]
+        }
+      }
+    ],
+    "objects": {
+      "dataBars": [
+        {
+          "properties": {
+            "dataBarColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Conditional": {
+                      "Cases": [
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 2,
+                              "Left": {
+                                "Measure": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Entity": "_Measures"
+                                    }
+                                  },
+                                  "Property": "ROA (Return on Assets) Anualizado"
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "0.04D"
+                                }
+                              }
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#00FF00'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 3,
+                              "Left": {
+                                "Measure": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Entity": "_Measures"
+                                    }
+                                  },
+                                  "Property": "ROA (Return on Assets) Anualizado"
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "0.04D"
+                                }
+                              }
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#FF0000'"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "_Measures.ROA (Return on Assets) Anualizado"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "5f1e7cb7dc089a8ebb00",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "ROA (Return on Assets) Anualizado"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c039a2560b377a595138",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "public vw_lending_club_powerbi"
+              }
+            },
+            "Property": "grade"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "5237e88959a395c6c662",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "public vw_lending_club_powerbi"
+              }
+            },
+            "Property": "faixa_comprometimento"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "740094f8376d9dcb87e5",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "public vw_lending_club_powerbi"
+              }
+            },
+            "Property": "term"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "e47e127b0699721e9200",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "public vw_lending_club_powerbi"
+              }
+            },
+            "Property": "classe_renda"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "41cf0dd88ca2a0860b6d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Resultado Financeiro Liquido"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "2f38eaabd7b209534ad4",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Ticket Médio de Concessão"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d06f5b34088564b2a3e1",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Ticket Médio Retorno Anualizado"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

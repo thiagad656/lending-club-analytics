@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "15b22a78cc26a87188d8",
   "position": {
-    "x": 0,
-    "y": 0,
+    "x": 46.467637926916645,
+    "y": 9.78266061619298,
     "z": 0,
     "height": 349.730117028899,
     "width": 358.28994506806782,
@@ -535,7 +535,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'ROA % por Comprometimento de Renda'"
+                  "Value": "'ROA Anualizado % por Comprometimento de Renda'"
                 }
               }
             },

@@ -1,0 +1,135 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "b3a19e623e84793670be",
+  "position": {
+    "x": 0,
+    "y": 499.48709358615724,
+    "z": 2000,
+    "height": 220.92698370156955,
+    "width": 1026.4185329737518,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "public vw_lending_club_powerbi"
+                    }
+                  },
+                  "Property": "classe_renda"
+                }
+              },
+              "queryRef": "public vw_lending_club_powerbi.classe_renda",
+              "nativeQueryRef": "classe_renda",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Quantidade de Contratos"
+                }
+              },
+              "queryRef": "_Measures.Quantidade de Contratos",
+              "nativeQueryRef": "Quantidade de Contratos"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Volume Total Financiado"
+                }
+              },
+              "queryRef": "_Measures.Volume Total Financiado",
+              "nativeQueryRef": "Volume Total Financiado"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "ROA Anualizado 36M"
+                }
+              },
+              "queryRef": "_Measures.ROA Anualizado 36M",
+              "nativeQueryRef": "ROA Anualizado 36M"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "ROA Anualizado 60M"
+                }
+              },
+              "queryRef": "_Measures.ROA Anualizado 60M",
+              "nativeQueryRef": "ROA Anualizado 60M"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Impacto Nominal Prazo 60M"
+                }
+              },
+              "queryRef": "_Measures.Impacto Nominal Prazo 60M",
+              "nativeQueryRef": "Impacto Nominal Prazo 60M"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'SLIDE 9'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
