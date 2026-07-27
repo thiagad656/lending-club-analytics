@@ -1,0 +1,37 @@
+flowchart TD
+    subgraph S1 ["1. Cloud Data Lake & Raw Source"]
+        A["📦 Kaggle: Lending Club Dataset<br/>2007-2018Q4"] --> B["📄 accepted_2007_to_2018Q4.csv<br/>~2.2M linhas / +150 colunas"]
+        B --> C["☁️ Azure Blob Storage<br/>Container: lending-club-raw"]
+    end
+
+    subgraph S2 ["2. Ingestão & Pipeline ETL em Python"]
+        C --> D["🐍 Script Python: ingest_azure_to_postgres.py<br/>BlobServiceClient + Streaming direto da Nuvem"]
+        D --> E["✂️ Otimização de Memória & Column Pruning<br/>Filtro de 17 colunas essenciais + Drop Null IDs"]
+        E --> F["🔄 Carga Incremental em Batch<br/>Chunks de 50.000 linhas via SQLAlchemy"]
+    end
+
+    subgraph S3 ["3. Camada de Engenharia & SQL - PostgreSQL"]
+        F --> G["🐘 Tabela Fato: fato_loans<br/>PostgreSQL Local Database"]
+        G --> H["🧹 Limpeza & Filtro de Ciclos Concluídos<br/>Fully Paid, Charged Off, Default (~1.34M linhas)"]
+        H --> I["💵 Correção Monetária - CPI Index<br/>Ajuste de Renda e Empréstimos para USD de 2018"]
+        I --> J["⚙️ Feature Engineering<br/>renda_real | faixa_comprometimento | quintil_renda"]
+        J --> K["👁️ View Analítica de Negócio<br/>vw_lending_club_powerbi"]
+    end
+
+    subgraph S4 ["4. Camada de Analytics & Modelagem - Power BI"]
+        K --> L["📐 Modelagem de Dados & DAX<br/>Volume Financiado, Perda de Capital,<br/>ROA Acumulado & ROA Anualizado"]
+        L --> M["🌳 Árvore de Decomposição<br/>Análise DuPont / Prazos 36m vs 60m /<br/>Risco por Grade & Comprometimento"]
+    end
+
+    subgraph S5 ["5. Entregáveis & Governança"]
+        M --> N["📊 Dashboard Executivo Interativo .pbix"]
+        M --> O["📄 Apresentação Executiva & Pitch .pdf/.pptx"]
+        M --> P["📚 Documentação, Pitch & Benchmarks .md"]
+    end
+
+    %% Estilização do Diagrama
+    style S1 fill:#f9f9f9,stroke:#333,stroke-width:1px
+    style S2 fill:#e3f2fd,stroke:#1565c0,stroke-width:1px
+    style S3 fill:#e1f5fe,stroke:#0288d1,stroke-width:1px
+    style S4 fill:#fff3e0,stroke:#f57c00,stroke-width:1px
+    style S5 fill:#e8f5e9,stroke:#388e3c,stroke-width:1px

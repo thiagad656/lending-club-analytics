@@ -394,6 +394,96 @@
             }
           ]
         }
+      },
+      {
+        "name": "25aa913b888bd1a10279",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Quantidade de Contratos"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "5386803db55d409376bb",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Volume Total Financiado"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "03ddbd372ac81404c6e6",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Custo de Oportunidade Total Acumulado"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "9119082d557a08ad0537",
+        "field": {
+          "Arithmetic": {
+            "Left": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "Custo de Oportunidade Total Acumulado"
+              }
+            },
+            "Right": {
+              "ScopedEval": {
+                "Expression": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "_Measures"
+                      }
+                    },
+                    "Property": "Custo de Oportunidade Total Acumulado"
+                  }
+                },
+                "Scope": []
+              }
+            },
+            "Operator": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "8bd6b6a0dace5e804603",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "ROA (Return on Assets) Anualizado"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

@@ -221,6 +221,83 @@ table _Measures
 
 		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
 
+	measure 'Custo Recuperável Anualizado (Reprecificação Miolo C-D-E)' =
+			
+			VAR _Hurdle = 0.04
+			VAR _BpsMax = 0.008 -- teto de 80 bps
+			RETURN
+			    SUMX(
+			        FILTER(
+			            SUMMARIZE(
+			                'public vw_lending_club_powerbi',
+			                'public vw_lending_club_powerbi'[grade],
+			                'public vw_lending_club_powerbi'[term]
+			            ),
+			            'public vw_lending_club_powerbi'[grade] IN { "C", "D", "E" }
+			        ),
+			        VAR _VolumeCell =
+			            CALCULATE(
+			                [Volume Total Financiado],
+			                'public vw_lending_club_powerbi'[faixa_comprometimento] = "De 10% a 20% da renda"
+			            )
+			        VAR _ROACell =
+			            CALCULATE(
+			                [ROA (Return on Assets) Anualizado],
+			                'public vw_lending_club_powerbi'[faixa_comprometimento] = "De 10% a 20% da renda"
+			            )
+			        VAR _Gap = _Hurdle - _ROACell
+			        VAR _GapRecuperavel = IF(_Gap > 0, MIN(_Gap, _BpsMax), 0)
+			        RETURN
+			            _VolumeCell * _GapRecuperavel
+			    )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: c0be8eb2-598e-4454-82be-62fb1a7e81cc
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Custo Recuperável Acumulado (Reprecificação Miolo C-D-E)' =
+			
+			VAR _Hurdle = 0.04
+			VAR _BpsMax = 0.008
+			RETURN
+			    SUMX(
+			        FILTER(
+			            SUMMARIZE(
+			                'public vw_lending_club_powerbi',
+			                'public vw_lending_club_powerbi'[grade],
+			                'public vw_lending_club_powerbi'[term]
+			            ),
+			            'public vw_lending_club_powerbi'[grade] IN { "C", "D", "E" }
+			        ),
+			        VAR _ROACell =
+			            CALCULATE(
+			                [ROA (Return on Assets) Anualizado],
+			                'public vw_lending_club_powerbi'[faixa_comprometimento] = "De 10% a 20% da renda"
+			            )
+			        VAR _Gap = _Hurdle - _ROACell
+			        VAR _FracaoRecuperavel = IF(_Gap > 0, MIN(_Gap, _BpsMax) / _Gap, 0)
+			        VAR _CustoTotalCelula =
+			            CALCULATE(
+			                [Custo de Oportunidade Total Acumulado],
+			                'public vw_lending_club_powerbi'[faixa_comprometimento] = "De 10% a 20% da renda"
+			            )
+			        RETURN
+			            _FracaoRecuperavel * _CustoTotalCelula
+			    )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: c286a53e-88b4-4c24-b3f3-ea4aa34a1557
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'ROA Projetado (Cenário Reprecificação Miolo)' =
+			
+			DIVIDE(
+			    [Resultado Financeiro Anualizado] + [Custo Recuperável Anualizado (Reprecificação Miolo C-D-E)],
+			    [Volume Total Financiado]
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: f5c04dc1-b1c7-4132-b9d5-f2381c7b1449
+
 	partition _Measures = m
 		mode: import
 		source =

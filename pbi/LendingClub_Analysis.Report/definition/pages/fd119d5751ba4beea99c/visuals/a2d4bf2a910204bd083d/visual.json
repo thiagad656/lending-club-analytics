@@ -1,0 +1,74 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "a2d4bf2a910204bd083d",
+  "position": {
+    "x": 42.538735992227679,
+    "y": 201.7159416405635,
+    "z": 1,
+    "height": 279.93232717465958,
+    "width": 410.29296973148632,
+    "tabOrder": 1
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Custo Recuperável Anualizado (Reprecificação Miolo C-D-E)"
+                }
+              },
+              "queryRef": "_Measures.Custo Recuperável Anualizado (Reprecificação Miolo C-D-E)",
+              "nativeQueryRef": "Custo Recuperável Anualizado (Reprecificação Miolo C-D-E)"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "Custo Recuperável Anualizado (Reprecificação Miolo C-D-E)"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "d42616f3490e3d80da57",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Custo Recuperável Anualizado (Reprecificação Miolo C-D-E)"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

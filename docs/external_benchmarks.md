@@ -1,6 +1,6 @@
 # Fontes de Referência e Benchmarks Externos (Ano-Base: 2018)
 
-Este documento centraliza os links oficiais e os relatórios de auditoria utilizados para validar as metas de risco e rentabilidade (Hurdle Rate de ROA > 4,0% aa) aplicadas na análise do portfólio do Lending Club.
+Este documento centraliza os links oficiais e os relatórios de auditoria utilizados para validar as metas de risco e rentabilidade (Hurdle Rate de ROA => 4,0% aa) aplicadas na análise do portfólio do Lending Club.
 
 ---
 
@@ -38,7 +38,7 @@ Os indicadores de taxa livre de risco e a média de rentabilidade de todo o sist
 
 # External Benchmarks and Reference Sources (Baseline Year: 2018)
 
-This document centralizes the official links and audit reports used to validate the risk and profitability targets (ROA Hurdle Rate > 4.0% p.a.) applied in the Lending Club portfolio analysis.
+This document centralizes the official links and audit reports used to validate the risk and profitability targets (ROA Hurdle Rate => 4.0% p.a.) applied in the Lending Club portfolio analysis.
 
 ---
 

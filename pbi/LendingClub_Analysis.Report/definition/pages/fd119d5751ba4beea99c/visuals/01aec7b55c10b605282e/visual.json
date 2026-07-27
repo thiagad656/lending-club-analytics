@@ -1,0 +1,74 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "01aec7b55c10b605282e",
+  "position": {
+    "x": 42.538735992227679,
+    "y": 0,
+    "z": 0,
+    "height": 279.93232717465958,
+    "width": 444.59840198328283,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Custo Recuperável Acumulado (Reprecificação Miolo C-D-E)"
+                }
+              },
+              "queryRef": "_Measures.Custo Recuperável Acumulado (Reprecificação Miolo C-D-E)",
+              "nativeQueryRef": "Custo Recuperável Acumulado (Reprecificação Miolo C-D-E)"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "Custo Recuperável Acumulado (Reprecificação Miolo C-D-E)"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "a3a21fca48b0dcbde621",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Custo Recuperável Acumulado (Reprecificação Miolo C-D-E)"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

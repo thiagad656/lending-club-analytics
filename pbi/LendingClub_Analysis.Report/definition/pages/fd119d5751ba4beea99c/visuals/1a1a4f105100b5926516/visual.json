@@ -1,0 +1,74 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "1a1a4f105100b5926516",
+  "position": {
+    "x": 42.538735992227679,
+    "y": 451.45948843364215,
+    "z": 2,
+    "height": 150.94390190790466,
+    "width": 433.62066366270795,
+    "tabOrder": 2
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "ROA Projetado (Cenário Reprecificação Miolo)"
+                }
+              },
+              "queryRef": "_Measures.ROA Projetado (Cenário Reprecificação Miolo)",
+              "nativeQueryRef": "ROA Projetado (Cenário Reprecificação Miolo)"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "ROA Projetado (Cenário Reprecificação Miolo)"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "6cc4e1d6e701c01be03d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "ROA Projetado (Cenário Reprecificação Miolo)"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}
