@@ -25,7 +25,7 @@ flowchart TD
     end
 
     subgraph S5 ["5. Entregáveis & Governança"]
-        M --> N["📊 Dashboard Executivo Interativo .pbix"]
+        M --> N["📊 Dashboard Executivo Interativo .pbib"]
         M --> O["📄 Apresentação Executiva & Pitch .pdf/.pptx"]
         M --> P["📚 Documentação, Pitch & Benchmarks .md"]
     end
